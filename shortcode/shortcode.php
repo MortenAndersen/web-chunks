@@ -7,7 +7,7 @@ function web_chunks($atts) {
     ob_start();
 
     // define attributes and their defaults
-    extract(shortcode_atts(array('grid' => 'g-d-3', 'gap' =>'gap-2', 'type' => 'none', 'class' => 'no-class', 'display' => 'normal', 'wrap' =>'none-wrap' ), $atts));
+    extract(shortcode_atts(array('grid' => 'g-d-3', 'gap' =>'gap-2', 'type' => 'none', 'class' => 'no-class', 'display' => 'normal', 'wrap' =>'none-wrap', 'card' => 'no-card' ), $atts));
 
 
 /* -------------------------------------- */
@@ -33,15 +33,19 @@ if ( $loop->have_posts() ) {
     if ( $display != 'carousel' && $display != 'fader' && $display != 'banner' && $display != 'parallax') {
 	   echo '<div class="grid ' . $wrap . ' ' . $gap . ' ' . $grid . ' ' . $type . ' ' . $class . '">';
     } else {
-        echo '<div class="chunk-banner ' .  $display . '">';
+        echo '<div class="chunk-banner ' .  $display . ' ' . $class . '">';
     }
 
 	while ( $loop->have_posts() ) : $loop->the_post();
 
-        if( !get_field('billede_som_baggrund') && has_post_thumbnail() || get_field('baggrundsfarve') ) {
-		  echo '<div id="chunk-id-' . get_the_ID() . '" class="chunk-item chunk-item-bg"' . web_chunk_baggrund() . '>';
-        } else {
-            echo '<div id="chunk-id-' . get_the_ID() . '" class="chunk-item">';
+        if( !get_field('billede_som_baggrund') && has_post_thumbnail() ) {
+		  echo '<div id="chunk-id-' . get_the_ID() . '" class="chunk-item' . web_chunk_custom_class() . ' chunk-item-bg-image"' . web_chunk_baggrund() . '>';
+        } 
+else if(  get_field('baggrundsfarve') ) {
+          echo '<div id="chunk-id-' . get_the_ID() . '" class="chunk-item' . web_chunk_custom_class() . ' chunk-item-bg-color"' . web_chunk_baggrund_color() . '>';
+        }
+        else {
+            echo '<div id="chunk-id-' . get_the_ID() . '" class="chunk-item' . web_chunk_custom_class() . '">';
         }
             web_chunks_content();
 

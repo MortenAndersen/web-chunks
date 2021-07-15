@@ -30,6 +30,15 @@ function web_chunk_img() {
 
 /* -------------------------------------- */
 
+function web_chunk_custom_class() {
+	if( get_field('custom_class') ) {
+			 	return ' ' . get_field('custom_class');
+		}
+
+}
+
+/* -------------------------------------- */
+
 function web_chunk_baggrund() {
 	
 		if( !get_field('billede_som_baggrund') && !get_field('tekstfarve') ) {
@@ -38,10 +47,14 @@ function web_chunk_baggrund() {
 		if( !get_field('billede_som_baggrund') && get_field('tekstfarve') ) {
 			 	return 'style="background-image: url(' . get_the_post_thumbnail_url(get_the_ID(),'full') . '); color:' . get_field('tekstfarve') . '"';
 		}
+}
+
+/* -------------------------------------- */
+
+function web_chunk_baggrund_color() {
 		if( get_field('baggrundsfarve') && get_field('tekstfarve') ) {
 			 	return 'style="background-color:' . get_field('baggrundsfarve') . '; color:' . get_field('tekstfarve') . '"';
 		}
-	
 }
 
 /* -------------------------------------- */
@@ -100,10 +113,11 @@ function web_chunks_content() {
 		web_chunk_img();
 		
 	}
-	
-		the_content();
-		web_chunk_link();
-		web_chunk_fakta();
+		echo '<div class="web-chunk-txt">';
+			the_content();
+			web_chunk_link();
+			web_chunk_fakta();
+		echo '</div>';
 	
 		edit_post_link( __( 'Edit', 'web-chunks' ));
 	echo '</div>';
