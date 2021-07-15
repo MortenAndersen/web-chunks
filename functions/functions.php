@@ -82,13 +82,30 @@ if( have_rows('fakta') ):
         $sub_item = get_sub_field('item');
         $sub_class = get_sub_field('custom_class');
 
+        $value = get_sub_field('icon');
+			if( $value == 'Facebook' ) {
+		     $icon = ' facebook-icon';
+			} elseif ( $value == 'Twitter' ) {
+		     $icon = ' twitter-icon';
+			} elseif ( $value == 'Youtube' ) {
+		     $icon = ' youtube-icon';
+			} elseif ( $value == 'E-mail' ) {
+		     $icon = ' email-icon';
+			} elseif ( $value == 'Phone' ) {
+		     $icon = ' phone-icon';
+			} elseif ( $value == 'Linkedin' ) {
+		     $icon = ' linkedin-icon';
+			} else {
+				$icon = null;
+			}
+
         if ( $sub_label ) {
         	$label = '<span class="web-chunk-label">' . $sub_label . ':</span>';
     	} else {
     		$label = '';
     	}
 
-         echo '<li class="' . $sub_class . '">' . $label . $sub_item . '</li>';
+         echo '<li class="' . $sub_class . $icon . '">' . $label . $sub_item . '</li>';
 
     endwhile;
     echo '</ul>';

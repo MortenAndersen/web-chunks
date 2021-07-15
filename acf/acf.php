@@ -1,4 +1,4 @@
-<?php
+<?php 
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
@@ -172,6 +172,35 @@ acf_add_local_field_group(array(
 			'layout' => 'table',
 			'button_label' => '',
 			'sub_fields' => array(
+				array(
+					'key' => 'field_60f01b325bde8',
+					'label' => 'Icon',
+					'name' => 'icon',
+					'type' => 'select',
+					'instructions' => '',
+					'required' => 0,
+					'conditional_logic' => 0,
+					'wrapper' => array(
+						'width' => '',
+						'class' => '',
+						'id' => '',
+					),
+					'choices' => array(
+						'Facebook' => 'Facebook',
+						'Youtube' => 'Youtube',
+						'Twitter' => 'Twitter',
+						'Linkedin' => 'Linkedin',
+						'Phone' => 'Phone',
+						'E-mail' => 'E-mail',
+					),
+					'default_value' => false,
+					'allow_null' => 1,
+					'multiple' => 0,
+					'ui' => 0,
+					'return_format' => 'value',
+					'ajax' => 0,
+					'placeholder' => '',
+				),
 				array(
 					'key' => 'field_60c9ed469b370',
 					'label' => 'Label',
