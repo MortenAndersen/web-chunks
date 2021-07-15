@@ -10,7 +10,7 @@ Author URI: https://www.hjemmesider.dk.dk
 
 if( class_exists('ACF') ) {
 /* -------------------------------------- */
-//require_once ('acf/acf.php');
+require_once ('acf/acf.php');
 require_once ('functions/posttype.php');
 require_once ('shortcode/shortcode.php');
 require_once ('functions/functions.php');

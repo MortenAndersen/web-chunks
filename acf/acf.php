@@ -1,4 +1,4 @@
-<?php 
+<?php
 if( function_exists('acf_add_local_field_group') ):
 
 acf_add_local_field_group(array(
@@ -52,7 +52,7 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'message' => '',
-			'default_value' => 0,
+			'default_value' => 1,
 			'ui' => 1,
 			'ui_on_text' => 'Normal',
 			'ui_off_text' => 'Baggrund',
@@ -109,6 +109,25 @@ acf_add_local_field_group(array(
 				'id' => '',
 			),
 			'return_format' => 'array',
+		),
+		array(
+			'key' => 'field_60dec92ca8e47',
+			'label' => 'Custom class',
+			'name' => 'custom_class',
+			'type' => 'text',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array(
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'prepend' => '',
+			'append' => '',
+			'maxlength' => '',
 		),
 	),
 	'location' => array(
