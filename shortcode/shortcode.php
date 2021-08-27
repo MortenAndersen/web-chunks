@@ -30,7 +30,7 @@ function web_chunks($atts) {
 /* -------------------------------------- */
 
 if ( $loop->have_posts() ) {
-    if ( $display != 'carousel' && $display != 'fader' && $display != 'banner' && $display != 'parallax') {
+    if (  $display != 'banner' && $display != 'parallax') {
 	   echo '<div class="grid ' . $wrap . ' ' . $gap . ' ' . $grid . ' ' . $type . ' ' . $class . '">';
     } else {
         echo '<div class="chunk-banner ' .  $display . ' ' . $class . '">';
@@ -89,7 +89,7 @@ function web_chunks_id($atts) {
 
 if ( $loop->have_posts() ) {
 
-    if ( $display != 'carousel' && $display != 'fader' && $display != 'banner' && $display != 'parallax') {
+    if ( $display != 'banner' && $display != 'parallax') {
        echo '<div class="grid ' . $wrap . ' ' . $gap . ' ' . $grid . ' ' . $class . '">';
     } else {
         echo '<div class="grids ' .  $display . '">';
